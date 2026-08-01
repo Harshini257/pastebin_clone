@@ -5,9 +5,46 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+:root {
+  color-scheme: dark;
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --surface-strong: #111827;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --button: #0ea5e9;
+  --button-hover: #0284c7;
+  --delete: crimson;
+  --shadow: rgba(0,0,0,.4);
+  --input-bg: #1e293b;
+  --border: #334155;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-strong: #e2e8f0;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --button: #2563eb;
+  --button-hover: #1d4ed8;
+  --delete: #dc2626;
+  --shadow: rgba(15,23,42,.12);
+  --input-bg: #f1f5f9;
+  --border: #cbd5e1;
+}
+
 body {
-  background: #0f172a;
-  color: white;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+#root {
+  width: 100%;
 }
 
 .container {
@@ -19,13 +56,13 @@ body {
 h1 {
   text-align: center;
   font-size: 45px;
-  margin-bottom: 30px;
-  color: #38bdf8;
+  margin-bottom: 0;
+  color: var(--accent);
 }
 
 h2 {
   margin: 35px 0 20px;
-  color: white;
+  color: var(--text);
 }
 
 input,
@@ -33,11 +70,11 @@ textarea {
   width: 100%;
   padding: 14px;
   margin-bottom: 18px;
-  border: none;
+  border: 1px solid var(--border);
   border-radius: 10px;
   font-size: 16px;
-  background: #1e293b;
-  color: white;
+  background: var(--input-bg);
+  color: var(--text);
   outline: none;
 }
 
@@ -55,42 +92,47 @@ button {
   padding: 12px 25px;
   border: none;
   border-radius: 8px;
-  background: #0ea5e9;
+  background: var(--button);
   color: white;
   font-size: 15px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: background-color 0.25s ease, color 0.25s ease;
   margin-top: 10px;
+  will-change: background-color;
 }
 
 button:hover {
-  background: #0284c7;
-  transform: scale(1.05);
+  background: var(--button-hover);
+}
+
+.theme-toggle {
+  width: auto;
+  font-weight: 600;
 }
 
 .delete {
-  background: crimson;
+  background: var(--delete);
 }
 
 .delete:hover {
-  background: darkred;
+  background: #991b1b;
 }
 
 .card {
-  background: #1e293b;
+  background: var(--surface);
   padding: 20px;
   border-radius: 12px;
   margin-top: 25px;
-  box-shadow: 0px 5px 15px rgba(0,0,0,.4);
+  box-shadow: 0px 5px 15px var(--shadow);
 }
 
 .card h3 {
-  color: #38bdf8;
+  color: var(--accent);
   margin-bottom: 10px;
 }
 
 .card small {
-  color: #94a3b8;
+  color: var(--muted);
 }
 
 .card pre {

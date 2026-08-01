@@ -3,11 +3,12 @@ const Paste = require("../models/Paste");
 // Create Paste
 const createPaste = async (req, res) => {
   try {
-    const { title, code } = req.body;
+    const { title, code, language } = req.body;
 
     const paste = await Paste.create({
       title,
       code,
+      language,
     });
 
     res.status(201).json(paste);
@@ -53,13 +54,14 @@ const getPasteById = async (req, res) => {
 // Update Paste
 const updatePaste = async (req, res) => {
   try {
-    const { title, code } = req.body;
+    const { title, code, language } = req.body;
 
     const paste = await Paste.findByIdAndUpdate(
       req.params.id,
       {
         title,
         code,
+        language,
       },
       {
         new: true,
