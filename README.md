@@ -103,3 +103,7 @@ docker compose up --build
 ## License
 
 This project is available under the ISC license.
+
+## Author
+
+Harshini M
